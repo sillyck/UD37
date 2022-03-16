@@ -1,25 +1,20 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { CharectersService } from './charecters.service';
 
-import { CharectersComponent } from './charecters.component';
+@Component({
+  selector: 'app-charecters',
+  templateUrl: './charecters.component.html',
+  styleUrls: ['./charecters.component.css']
+})
+export class CharectersComponent implements OnInit {
 
-describe('CharectersComponent', () => {
-  let component: CharectersComponent;
-  let fixture: ComponentFixture<CharectersComponent>;
+  charecters:any = null;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ CharectersComponent ]
-    })
-    .compileComponents();
-  });
+  constructor(private charectersService: CharaectersService) {}
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(CharectersComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  ngOnInit(){
+    this.charectersService.retornar()
+      .subscribe( result => this.charecters = result)
+  }
+}
