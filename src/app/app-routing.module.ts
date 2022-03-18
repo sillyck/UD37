@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { CharactersComponent } from './characters/characters.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
-import { DetailsComponent } from './characters/details/details.component';
 
 const routes: Routes = [
   {
@@ -18,10 +17,6 @@ const routes: Routes = [
   {
     path:'',
     component:HomeComponent
-  },
-  {
-    path:'characters/details/:id',
-    component:DetailsComponent
   }
 ];
 
