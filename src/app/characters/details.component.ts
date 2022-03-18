@@ -11,12 +11,12 @@ export class DetailsComponent implements OnInit {
   personajes: any;
   id: any;
 
-  constructor(private rymService: RymService, private _route: ActivatedRoute) { }
+  constructor(private charactersService: CharactersService, private _route: ActivatedRoute) { }
 
   ngOnInit() {
     this.id = this._route.snapshot.paramMap.get('id');
 
-    this.rymService.devolver_id(this.id)
+    this.charactersService.return_id(this.id)
       .subscribe( result => this.personajes = result)
   }
 
